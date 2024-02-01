@@ -3,6 +3,7 @@ package com.example.pm012024;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText nombres, apellidos, edad, correo;
     Button btnproceso;
+    Button Lista;
 
     //prueba
 
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         edad = (EditText) findViewById(R.id.edad);
         correo = (EditText) findViewById(R.id.correo);
         btnproceso = (Button) findViewById(R.id.btnprocesar);
+        Lista = (Button) findViewById(R.id.btnLista);
 
         btnproceso.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +42,16 @@ public class MainActivity extends AppCompatActivity {
                AddPerson();
             }
         });
+        Lista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent creacion = new Intent(getApplicationContext(),ActivityList.class);
+                startActivity(creacion);
+            }
+        });
     }
+
+
 
     private void AddPerson()
     {
